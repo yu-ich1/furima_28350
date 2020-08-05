@@ -4,14 +4,17 @@
 
 ## users テーブル                   
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| nickname | string | null: false |
-| email    | string | null: false |
-| password | string | null: false |
-| name     | string | null: false |
-| kana     | string | null: false |
-| birthday | string | null: false |
+| Column     | Type   | Options     |
+| ---------- | ------ | ----------- |
+| nickname   | string | null: false |
+| email      | string | null: false |
+| password   | string | null: false |
+| name       | string | null: false |
+| first_name | string | null: false |
+| family_name| string | null: false |
+| furigana   | string | null: false |
+| date       | string | null: false |
+
 
 ### Association
 
@@ -22,26 +25,18 @@
 | Column          | Type       | Options                       |
 | ----------------| ---------- | ------------------------------|
 | price           | integer    | null: false                   |
-| category        | string     | null: false                   |
-| prodact_status  | string     | null: false                   |
-| shipping_charges| string     | null: false                   |
-| shipping_origin | string     | null: false                   |
-|date_of_shipment | string     | null: false                   |
 |user             | references | null: false, foreign_key: true|
 
 
 ### Association
 
-- has_one    :transaction
+- has_one    :item_purchases
 - belongs_to :user
 
-## transactions テーブル
+## item_purchases テーブル
 
 | Column          | Type       | Options                       |        
 | ------- --------| ---------- | ----------------------------- |
-| card_information| integer    | null: false                   |
-| exporation_date | string     | null: false                   |
-| security_code   | string     | null: false                   |
 | items           | references | null: false, foreign_key: true|
 
 ### Association
@@ -51,15 +46,15 @@
 
 ## shipping_adress テーブル
 
-| Column                   | Type      | Options                       |        
-| -------------------------| ----------| ----------------------------- |
-| postal_number            | string    | null: false                   |
-| metropolis_and_districts | string    | null: false                   |
-| the_municipality         | string    | null: false                   |
-| fandi                    | string    | null: false                   |
-|building_name             | string    |                               |
-|phone_number              | integer   |null: false                    |
-|transacitions             |references | null: false, foreign_key: true|
+| Column        | Type      | Options                       |        
+| --------------| ----------| ----------------------------- |
+| postal_number | string    | null: false                   |
+| birthplace    | string    | null: false                   |
+| municipality  | string    | null: false                   |
+| house_number  | string    | null: false                   |
+|building_name  | string    |                               |
+|phone_number   | string    |null: false                    |
+|item_purchases |references | null: false, foreign_key: true|
 
 ### Association
-  belongs_to  :transacitions
+  belongs_to  :item_purchases
