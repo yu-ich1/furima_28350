@@ -13,38 +13,45 @@
 | first_name | string | null: false |
 | family_name| string | null: false |
 | furigana   | string | null: false |
-| date       | string | null: false |
+| date       | date   | null: false |
 
 
 ### Association
 
 - has_many :items
+- has_one  :item_purchases
 
 ## items テーブル
 
 | Column          | Type       | Options                       |
 | ----------------| ---------- | ------------------------------|
 | price           | integer    | null: false                   |
-|user             | references | null: false, foreign_key: true|
+| user            | references | null: false, foreign_key: true|
+| category        | integer    | null: false                   |
+| prodact_status  | integer    | null: false                   |
+| shipping_charges| integer    | null: false                   |
+| shipping_origin | integer    | null: false                   |
+|date_of_shipment | integer    | null: false                   |
 
 
 ### Association
 
-- has_one    :item_purchases
+- has_one    :item_purchase
 - belongs_to :user
 
 ## item_purchases テーブル
 
-| Column          | Type       | Options                       |        
-| ------- --------| ---------- | ----------------------------- |
-| items           | references | null: false, foreign_key: true|
+| Column | Type       | Options                       |        
+| -------| ---------- | ----------------------------- |
+| item   | references | null: false, foreign_key: true|
+| user   | references | null: false, foreign_key: true|
 
 ### Association
 
 - belongs_to :item
-- has_one    :shipping_adress
+- belongs_to :user
 
-## shipping_adress テーブル
+## adress テーブル
 
 | Column        | Type      | Options                       |        
 | --------------| ----------| ----------------------------- |
@@ -53,8 +60,8 @@
 | municipality  | string    | null: false                   |
 | house_number  | string    | null: false                   |
 |building_name  | string    |                               |
-|phone_number   | string    |null: false                    |
-|item_purchases |references | null: false, foreign_key: true|
+|phone_number   | string    | null: false                   |
+| item          |references | null: false, foreign_key: true|
 
 ### Association
-  belongs_to  :item_purchases
+  belongs_to  :item
