@@ -28,6 +28,11 @@
 | ----------------| ---------- | ------------------------------|
 | prodact_name    | string     | null: false                   |
 | explanation     | text       | null: false                   |
+| category        | integer    | null: false                   |
+| prodact_status  | integer    | null: false                   |
+| shipping_charges| integer    | null: false                   |
+| shipping_origin | integer    | null: false                   |
+|date_of_shipment | integer    | null: false                   |
 |user             | references | null: false, foreign_key: true|
 
 
@@ -36,33 +41,6 @@
 - has_one    :item_purchase
 - belongs_to :user
 - has_one    :adress
-- has_many   :item_tags
-
-## item_tags テーブル
-
-| Column          | Type       | Options                       |
-| ----------------| ---------- | ------------------------------|
-| item            | references | null: false, foreign_key: true|
-| tag             | references | null: false, foreign_key: true|
-
-### Association
-
-- belongs_to :item
-- belongs_to :tag
-
-
-## tags テーブル
-| Column          | Type       | Options      |
-| ----------------| ---------- | -------------|
-| category        | integer    | null: false  |
-| prodact_status  | integer    | null: false  |
-| shipping_charges| integer    | null: false  |
-| shipping_origin | integer    | null: false  |
-|date_of_shipment | integer    | null: false  |
-
-### Association
-
-- has_many :item_tags
 
 
 ## item_purchases テーブル
