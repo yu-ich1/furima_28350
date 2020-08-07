@@ -4,17 +4,17 @@
 
 ## users テーブル                   
 
-| Column     | Type   | Options     |
-| ---------- | ------ | ----------- |
-| nickname   | string | null: false |
-| email      | string | null: false |
-| password   | string | null: false |
-| name       | string | null: false |
-| first_name | string | null: false |
-| family_name| string | null: false |
-| furigana   | string | null: false |
-| date       | date   | null: false |
-
+| Column           | Type   | Options     |
+| -----------------| ------ | ----------- |
+| nickname         | string | null: false |
+| email            | string | null: false |
+| password         | string | null: false |
+| first_name_kana  | string | null: false |
+| family_name_kana |string | null: false |
+| first_name       | string | null: false |
+| family_name      | string | null: false |
+| date             | date   | null: false |
+  
 
 ### Association
 
