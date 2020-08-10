@@ -4,14 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, :date, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
-  #  validates :email, {presence: true, , format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }}
-  validates :family_name, presence: true, format: { with: /\A[一-龥]+\z/ }
-  validates :family_name, presence: true, format: { with: /\A[a-z\d]+\z/i }
-  validates :first_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :family_name_kana, presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
-  validates :first_name, presence: true, format: { with: /\A[一-龥]+\z/ }
+  with_options presence: true do
+    validates :nickname, :date
+    VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+    validates :first_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "は漢字で入力してください。" }
+    validates :family_name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "は漢字で入力してください。" }
+    validates :first_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "はカナで入力してください。"  }
+    validates :family_name_kana, format: { with: /\A[ァ-ヶー－]+\z/, message: "はカナで入力してください。" }
+  end
 end
 
 #:first_name, :family_name, :first_name_kana, :family_name_kana,
