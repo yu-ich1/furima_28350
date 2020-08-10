@@ -12,7 +12,8 @@ class User < ApplicationRecord
     
     validates :first_name, :family_name, format: { with: VALID_NAME_REGEX, message: "は漢字で入力してください。" }
     validates :first_name_kana, :family_name_kana,format: { with: VALID_FURIGANA_REGEX, message: "はカナで入力してください。"  }
-  end
+    validates :password, format: { with: /\A[a-zA-Z0-9]+\z/, message: "半角英数で入力してください"  }
+ end
 end
 
-#:first_name, :family_name, :first_name_kana, :family_name_kana,
+
