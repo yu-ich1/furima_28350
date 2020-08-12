@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC")
   end
 
   def new
@@ -17,6 +17,15 @@ class ItemsController < ApplicationController
       redirect_to items_path(@item)
     else
       render :new
+    end
+
+    def price
+      @item = Item.new
+      item = Item.find(params[:id])
+      
+      
+
+      render json: { post: item }
     end
 
   end
