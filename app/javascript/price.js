@@ -11,28 +11,7 @@ window.addEventListener("load", function(){
        let appendbenefit = document.getElementById('profit')
        appendbenefit.textContent = benefit
        
-    //    const feeHTML =
-    //     `<div class="price-content">
-    //       <div class="add-tax-price">
-    //       ${fee}
-    //       </div>
-    //     </div>`;
-        
-    
-        // addTaxPrice = document.getElementById("add-tax-price");
-        // addTaxPrice.insertAdjacentHTML("afterend", feeHTML);
-        // addTaxPrice.textContent(fee)
-        
 
-        // const benefitHTML =
-        // `<div class="price-content">
-        //   <div class="profit">
-        //   ${benefit}
-        //   </div>
-        // </div>`;
-        // profit = document.getElementById("profit");
-        // profit.insertAdjacentHTML("afterend", benefitHTML);
-        
 
       
     })
