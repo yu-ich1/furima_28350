@@ -26,14 +26,15 @@
 
 | Column          | Type       | Options                       |
 | ----------------| ---------- | ------------------------------|
-| prodact_name    | string     | null: false                   |
+| product_name    | string     | null: false                   |
 | explanation     | text       | null: false                   |
 | category        | integer    | null: false                   |
-| prodact_status  | integer    | null: false                   |
+| product_status  | integer    | null: false                   |
 | shipping_charges| integer    | null: false                   |
 | shipping_origin | integer    | null: false                   |
 |date_of_shipment | integer    | null: false                   |
-|user             | references | null: false, foreign_key: true|
+|product_price    | integer    | null: false                   |
+|user             | references | null: false, foreign_key:true |
 
 
 ### Association
