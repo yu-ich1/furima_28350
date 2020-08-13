@@ -19,20 +19,20 @@ class ItemsController < ApplicationController
       render :new
     end
 
-    def price
-      @item = Item.new
-      item = Item.find(params[:id])
-      
-      
-
-      render json: { post: item }
-    end
+    # def price
+    #   # @item = Item.new
+    #   # item = Item.find(params[:product_price])
+    #   # add-tax-price = product_price * 0.1
+    #   # price-content = product_price - add-tax-price
+    #   # render json: { post: item }
+    # end
 
   end
 
   private
   def item_params
-    params.require(:item).permit(:image, :product_name, :explanation, :product_price, :category_id, :product_status_id, :shipping_charges_id, :shipping_origin_id, :date_of_shipment_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :product_name, :explanation, :product_price, :category_id, :product_status_id,
+       :shipping_charges_id, :shipping_origin_id, :date_of_shipment_id).merge(user_id: current_user.id)
 
   end
 
