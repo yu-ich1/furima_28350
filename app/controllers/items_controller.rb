@@ -23,9 +23,17 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  # def order
-  #   item_purchases.create(item_id: params[:id]) 
-  # end
+
+  # def sales_status
+  #     item = Item.find(params[:id])
+  #     if item.sales_status then
+  #       item.update(sales_status: false)
+  #     else
+  #       item.update(sales_status: true)
+  #     end
+  
+  #     item = Item.find(params[:id])
+  #   end
 
   private
 
