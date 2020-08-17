@@ -17,20 +17,28 @@ class ItemsController < ApplicationController
     else
       render :new
     end
-
-    # def price
-    #   # @item = Item.new
-    #   # item = Item.find(params[:product_price])
-    #   # add-tax-price = product_price * 0.1
-    #   # price-content = product_price - add-tax-price
-    #   # render json: { post: item }
-    # end
   end
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+
+  # def sales_status
+  #     item = Item.find(params[:id])
+  #     if item.sales_status then
+  #       item.update(sales_status: false)
+  #     else
+  #       item.update(sales_status: true)
+  #     end
+  
+  #     item = Item.find(params[:id])
+  #   end
 
   private
 
   def item_params
-    params.require(:item).permit(:image, :product_name, :explanation, :product_price, :category_id, :product_status_id,
+    params.require(:item).permit(:image, :product_name, :product_name, :product_price, :category_id, :product_status_id,:explanation,
                                  :shipping_charges_id, :shipping_origin_id, :date_of_shipment_id).merge(user_id: current_user.id)
   end
 
