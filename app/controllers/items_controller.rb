@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-  # before_action :move_to_index, except: [:index]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -21,7 +20,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @user = User.find(params[:id])
   end
 
   def edit
