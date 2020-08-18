@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   # before_action :move_to_index, except: [:index]
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -21,12 +21,19 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @user = User.find(params[:id])
   end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
+
+  # def sales_status
+  #     item = Item.find(params[:id])
+  #     if item.sales_status then
+  #       item.update(sales_status: false)
+  #     else
+  #       item.update(sales_status: true)
+  #     end
+  
+  #     item = Item.find(params[:id])
+  #   end
 
   private
 
