@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_item, only: [:edit, :show]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -19,11 +20,9 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   private
@@ -33,7 +32,7 @@ class ItemsController < ApplicationController
                                  :shipping_charges_id, :shipping_origin_id, :date_of_shipment_id).merge(user_id: current_user.id)
   end
 
-  # def move_to_index
-  #   redirect_to action: :index unless user_signed_in?
-  #    end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end
