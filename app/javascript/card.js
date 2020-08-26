@@ -1,5 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
-    Payjp.setPublicKey("pk_test_6d2fd8efa40324b8a321e9a1"); // PAY.JPテスト公開鍵
+  Payjp.setPublicKey(process.env.PAYJP_PUBLIC_KEY); // PAY.JPテスト公開鍵
     const form = document.getElementById("charge-form");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
