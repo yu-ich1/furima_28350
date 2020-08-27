@@ -3,7 +3,7 @@ class Order
   attr_accessor :postal_number, :birthplace_id, :municipality, :house_number, :building_name, :phone_number, :item_id, :user_id, :token
 
   with_options presence: true do
-    validates :municipality, :house_number, :building_name, :token, :item_id, :user_id
+    validates :municipality, :house_number, :token, :item_id, :user_id
     validates :phone_number, length: { maximum: 11, message: "Phone_number is too short (minimum is 11 characters)"}
     validates :postal_number, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :birthplace_id, numericality: { other_than: 1 }
