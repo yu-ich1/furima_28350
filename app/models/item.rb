@@ -2,13 +2,14 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :product_status
-  belongs_to_active_hash :shipping_charges
+  belongs_to_active_hash :shipping_charges, class_name: 'ShippingCharge'
   belongs_to_active_hash :shipping_origin
   belongs_to_active_hash :date_of_shipment
 
   has_one_attached :image
   belongs_to :user
-  has_many :item_purchases
+  has_one :item_purchase
+  has_one :address
 
   with_options presence: true do
     validates :product_name, :explanation, :image

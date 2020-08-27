@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :users 
   root to: 'items#index'
   resources :items do
+    resources :item_purchases
   end
 end
